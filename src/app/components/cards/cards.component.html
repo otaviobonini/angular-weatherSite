@@ -1,0 +1,18 @@
+<!-- HOJE -->
+<div class="" *ngIf="weatherData">
+  <div
+    class="flex flex-col gap-3 bg-gray-700 rounded-2xl mr-[20px] ml-[600px] w-[630px] h-[430px] p-4"
+  >
+    <div class="text-center mt-auto mb-auto">
+      <p class="text-opacity-95 text-white font-thin text-4xl">Wind</p>
+      <h1 class="text-white text-6xl ml-1 mt-6 mb-6 font-light">
+        {{ weatherData.current?.wind_kph }}km/h
+      </h1>
+      <p class="text-opacity-95 text-white font-thin text-2xl">
+        {{ weatherData.current?.wind_dir }}
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- AMANHÃ -->

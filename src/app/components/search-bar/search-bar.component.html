@@ -1,0 +1,32 @@
+<div id="container" class="mt-32 mb-6 ml-16 flex flex-row w-[600px]">
+  <input
+    [(ngModel)]="city"
+    id="inputLabel"
+    class="font-sans bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg block w-[400px] p-2.5 dark:bg-gray-200 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black"
+    placeholder="Insira a cidade"
+    type="search"
+  />
+  <button (click)="getWeather()" (click)="apagar()" class="w-[30px]">
+    <i class="fa-solid fa-magnifying-glass text-blue-500 text-2xl"></i>
+  </button>
+
+  <ul class="flex absolute ml-[550px] gap-5" *ngIf="weatherData">
+    <li class="text-gray-400 hover:text-black">
+      <a
+        (click)="inverter()"
+        [ngClass]="{ 'text-black': ativo, inativo: !ativo }"
+        class=""
+        href="#"
+        >Today</a
+      >
+    </li>
+    <li class="text-gray-400 hover:text-black">
+      <a
+        (click)="inverter()"
+        [ngClass]="{ 'text-black': !ativo, inativo: ativo }"
+        href="#"
+        >Tomorrow</a
+      >
+    </li>
+  </ul>
+</div>

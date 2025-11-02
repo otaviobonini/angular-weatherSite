@@ -1,0 +1,38 @@
+<div class="absolute ml-40" *ngIf="weatherData">
+  <!-- BLOCO QUANDO ativo = true -->
+  <div *ngIf="ativo">
+    <img [src]="weatherData.current?.condition.icon" height="200" width="200" />
+    <h1 class="text-5xl text-center font-medium">
+      {{ weatherData.current?.temp_c }}°C
+    </h1>
+    <p class="text-center">{{ weatherData.current?.condition.text }}</p>
+
+    <div class="text-center mt-10">
+      <p>{{ formatDate(weatherData.location?.localtime) }}</p>
+      <p>{{ formatTime(weatherData.location?.localtime) }}</p>
+      <h1 class="text-3xl mt-6">{{ weatherData.location?.name }}</h1>
+    </div>
+  </div>
+
+  <!-- BLOCO QUANDO ativo = false -->
+  <div *ngIf="!ativo">
+    <img
+      [src]="weatherData.forecast.forecastday[1].day.condition.icon"
+      height="200"
+      width="200"
+    />
+
+    <h1 class="text-5xl text-center font-medium">
+      {{ weatherData.forecast.forecastday[1].day.maxtemp_c }}°C
+    </h1>
+    <p class="text-center">
+      {{ weatherData.forecast.forecastday[1].day.condition.text }}
+    </p>
+
+    <div class="text-center mt-10">
+      <p>{{ tomorrowDate(weatherData.location?.localtime) }}</p>
+      <p>{{ formatTime(weatherData.location?.localtime) }}</p>
+      <h1 class="text-3xl mt-6">{{ weatherData.location?.name }}</h1>
+    </div>
+  </div>
+</div>
